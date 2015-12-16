@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Antigab Bookmarklet</title>
+<link rel="shortcut icon" href="favicon.png" />
+
+<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+
+var randomized_function = "function randomized_id(){var text = '';var possible= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';for(var i=0;i<10;i++){text += possible.charAt(Math.floor(Math.random()*possible.length));}return text;};";
+
+var create_function = "function create_script(){var jsCode=document.createElement('script');jsCode.setAttribute('src','//bntn.co/projects/antigab/assets/js/antigab_bookmarklet.js?'+randomized_id());jsCode.setAttribute('id','antigab_runner');document.body.appendChild(jsCode);};";
+
+var bookmarklet_javascript = "javascript:(function () { " + randomized_function + create_function + " function initialize_script(){var element = document.getElementById('antigab_runner');if(typeof(element)!='undefined'&&element!=null){element.parentNode.removeChild(element);};return create_script();};initialize_script();}());";
+
+$("#bookmarklet").attr("href", bookmarklet_javascript);
+
+});
+
+</script>
+
+
+</head>
+<body>
+<div id="middle">
+<div id="main">
+<div id="banner">
+<h1>Antigab</h1>
+<h4>Use this bookmarklet to get a simple summary of the text content on any page.</h4>
+</div>
+<div id="mid_row">
+<div id="icon_box">
+<div id="icon">
+<a id="bookmarklet" href="">Antigab Bookmarklet</a>
+</div>
+<div id="icon_title">
+Antigab Bookmarklet
+</div>
+</div>
+<div id="directions_box">
+<span>
+<strong>Directions:</strong> Drag icon to bookmarks bar, then click bookmarklet when on a page with text content.
+</span>
+<span style="margin-top:10px;">
+For more refined antigabbing, highlight the text you wish to be analyzed.
+</span>
+<div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
+
